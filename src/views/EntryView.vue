@@ -96,7 +96,7 @@ function switchMode(next) {
   height: auto;
 }
 
-.entry-view__brand :deep(path) {
+.entry-view__brand :deep(svg *) {
   fill: white;
 }
 
