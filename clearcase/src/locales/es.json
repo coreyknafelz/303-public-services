@@ -1,0 +1,124 @@
+{
+  "app": {
+    "name": "ClearCase"
+  },
+  "header": {
+    "languageToggle": "English",
+    "presenterMode": "Modo presentador",
+    "help": "Ayuda"
+  },
+  "statusLabel": {
+    "received": "Recibida",
+    "in_review": "En revisión",
+    "action_needed": "Acción necesaria",
+    "decision_pending": "Decisión pendiente",
+    "approved": "Aprobada",
+    "denied": "Denegada",
+    "on_hold": "En espera"
+  },
+  "entry": {
+    "heading": "Consulta tu caso",
+    "subheading": "Ingresa el código de caso de tu aviso para ver cómo va todo. No necesitas una cuenta.",
+    "caseCodeLabel": "Código de caso",
+    "caseCodePlaceholder": "ej. NNW-482931",
+    "caseCodeHint": "Tu código de caso está en la carta o el mensaje de texto que recibiste. Son 3 letras, un guion y 6 números.",
+    "submit": "Ver mi caso",
+    "orDivider": "o",
+    "signInLink": "Iniciar sesión con una cuenta existente",
+    "signInHeading": "Iniciar sesión",
+    "emailLabel": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "signInSubmit": "Iniciar sesión",
+    "backToCaseCode": "Usar un código de caso en su lugar",
+    "errorInvalidFormat": "Ese código no se ve bien. Debe verse como NNW-482931.",
+    "errorExpired": "Este código de caso ha vencido. Los códigos son válidos por 30 días — solicita uno nuevo o inicia sesión.",
+    "errorNotFound": "No encontramos un caso con ese código. Verifícalo e intenta de nuevo.",
+    "errorInvalidCredentials": "Ese correo o contraseña no funcionó. Intenta de nuevo."
+  },
+  "status": {
+    "heading": "Tu caso",
+    "caseCodeLabel": "Código de caso",
+    "programsHeading": "Programas",
+    "timelineHeading": "Cronología",
+    "caseworkerHeading": "Tu trabajador(a) de caso",
+    "callButton": "Llamar",
+    "viewChecklist": "Ver qué se necesita",
+    "onTrackMessage": "Todo se ve bien. No necesitas hacer nada por ahora.",
+    "actionNeededMessage": "Necesitamos un par de cosas de tu parte para seguir avanzando.",
+    "decisionPendingMessage": "Tu revisión está completa. Una decisión está en camino.",
+    "onHoldMessage": "Tu caso está en espera. Aquí está el motivo y qué sigue.",
+    "dataCallout": "En el condado de Meridian, 1 de cada 3 solicitudes se retrasa por documentos faltantes. La tuya es una de ellas."
+  },
+  "checklist": {
+    "heading": "Qué se necesita",
+    "subheading": "Sube estos documentos para mantener tu caso al día. Solo toma unos minutos.",
+    "deadlineLabel": "Se necesita antes del",
+    "urgentBadge": "Urgente",
+    "fulfilledBadge": "Enviado",
+    "uploadCta": "Subir",
+    "allDoneHeading": "Ya estás al día",
+    "allDoneMessage": "No necesitamos nada más de tu parte por ahora.",
+    "dataCallout": "El solicitante promedio tarda 6 días en responder a una solicitud de documentos. Responder esta noche mantiene tu caso al día."
+  },
+  "upload": {
+    "backToChecklist": "Volver a la lista",
+    "heading": "Subir: {label}",
+    "why": "Por qué lo necesitamos",
+    "formatHint": "Toma una foto clara o elige un archivo de imagen/PDF. Asegúrate de que las cuatro esquinas sean visibles y el texto sea legible.",
+    "takePhoto": "Tomar una foto",
+    "chooseFile": "Elegir un archivo en su lugar",
+    "retake": "Repetir foto",
+    "confirmUpload": "Se ve bien, enviar",
+    "qualityChecking": "Revisando la calidad de la foto…",
+    "qualityPass": "Esta foto se ve clara.",
+    "qualityWarn": "Esta foto puede ser difícil de leer — intenta de nuevo con mejor luz.",
+    "uploading": "Subiendo… {progress}%",
+    "successHeading": "Subido",
+    "successMessage": "Tu documento se envió correctamente.",
+    "continue": "Continuar",
+    "errorHeading": "La subida no se completó",
+    "tryAgain": "Intentar de nuevo"
+  },
+  "confirmation": {
+    "heading": "Listo por ahora",
+    "submittedHeading": "Lo que enviaste",
+    "docType": "Documento",
+    "submittedAt": "Enviado",
+    "attachedTo": "Adjuntado al caso",
+    "expectation": "Tu trabajador(a) de caso revisará esto dentro de 3 días hábiles. No necesitas llamar.",
+    "smsHeading": "Recibe un mensaje de texto cuando cambie tu estado",
+    "smsPlaceholder": "Número de celular",
+    "smsSubmit": "Enviarme actualizaciones",
+    "smsConfirmed": "Te enviaremos un mensaje cuando algo cambie.",
+    "backToCase": "Volver a mi caso",
+    "dataCallout": "Los casos donde los documentos se envían por el portal se procesan 40% más rápido que los enviados por correo o fax."
+  },
+  "help": {
+    "heading": "Ayuda",
+    "faqHeading": "Preguntas comunes",
+    "faq": {
+      "q1": "¿Dónde encuentro mi código de caso?",
+      "a1": "Está impreso en el aviso que recibiste por correo o mensaje de texto, con el formato NNW-482931. Si no lo encuentras, inicia sesión con tu cuenta.",
+      "q2": "¿Qué cuenta como comprobante de domicilio?",
+      "a2": "Una factura de servicios, contrato de alquiler, o correo oficial con fecha de los últimos 60 días que muestre tu nombre y domicilio actual.",
+      "q3": "¿Qué pasa si no cumplo con la fecha límite?",
+      "a3": "Tu caso podría retrasarse o ser denegado por falta de información. Enviar algo unos días tarde es mejor que no enviarlo — sube tus documentos tan pronto como puedas."
+    },
+    "callbackHeading": "Solicitar una llamada",
+    "callbackSubtext": "Evita la fila de espera. Deja tu número y un(a) trabajador(a) de caso te llamará.",
+    "callbackPhoneLabel": "Número de teléfono",
+    "callbackSubmit": "Solicitar llamada",
+    "callbackConfirmed": "Recibido — alguien te llamará pronto.",
+    "officeHeading": "Oficina más cercana",
+    "officeAddress": "Meridian County DHS — Oficina del centro",
+    "officeAddressLine": "412 5th Street, Meridian, ST 00000",
+    "officeHours": "Lun–Vie, 8:00 a.m.–5:00 p.m.",
+    "languageAssistanceHeading": "Asistencia en tu idioma",
+    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800.",
+    "dataCallout": "El mes pasado, 12,000 llamadas a la línea de beneficios del condado de Meridian quedaron sin respuesta. Este portal es una alternativa."
+  },
+  "common": {
+    "close": "Cerrar",
+    "cancel": "Cancelar"
+  }
+}

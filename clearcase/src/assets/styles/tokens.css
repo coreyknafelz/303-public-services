@@ -1,0 +1,163 @@
+/* Design tokens — derived from COLORS.md (shadow-grey, vintage-grape, mauve-shadow,
+   faded-copper, dusty-taupe) plus a supplemental teal for the "On Track" status,
+   which the source palette intentionally omits. */
+:root {
+  /* Shadow Grey */
+  --shadow-grey-50: #f2eff6;
+  --shadow-grey-100: #e4dfec;
+  --shadow-grey-200: #c9beda;
+  --shadow-grey-300: #ae9ec7;
+  --shadow-grey-400: #937db5;
+  --shadow-grey-500: #795da2;
+  --shadow-grey-600: #604a82;
+  --shadow-grey-700: #483861;
+  --shadow-grey-800: #302541;
+  --shadow-grey-900: #181320;
+  --shadow-grey-950: #110d17;
+
+  /* Vintage Grape */
+  --vintage-grape-50: #f2f0f5;
+  --vintage-grape-100: #e5e0eb;
+  --vintage-grape-200: #ccc2d6;
+  --vintage-grape-300: #b2a3c2;
+  --vintage-grape-400: #9885ad;
+  --vintage-grape-500: #7f6699;
+  --vintage-grape-600: #65527a;
+  --vintage-grape-700: #4c3d5c;
+  --vintage-grape-800: #33293d;
+  --vintage-grape-900: #19141f;
+  --vintage-grape-950: #120e15;
+
+  /* Mauve Shadow */
+  --mauve-shadow-50: #f5f0f2;
+  --mauve-shadow-100: #eae1e5;
+  --mauve-shadow-200: #d6c2cb;
+  --mauve-shadow-300: #c1a4b1;
+  --mauve-shadow-400: #ac8697;
+  --mauve-shadow-500: #98677d;
+  --mauve-shadow-600: #795364;
+  --mauve-shadow-700: #5b3e4b;
+  --mauve-shadow-800: #3d2932;
+  --mauve-shadow-900: #1e1519;
+  --mauve-shadow-950: #150e12;
+
+  /* Faded Copper */
+  --faded-copper-50: #f5f1ef;
+  --faded-copper-100: #ece4df;
+  --faded-copper-200: #d8c8c0;
+  --faded-copper-300: #c5ada0;
+  --faded-copper-400: #b19281;
+  --faded-copper-500: #9e7661;
+  --faded-copper-600: #7e5f4e;
+  --faded-copper-700: #5f473a;
+  --faded-copper-800: #3f2f27;
+  --faded-copper-900: #201813;
+  --faded-copper-950: #16110e;
+
+  /* Dusty Taupe */
+  --dusty-taupe-50: #f5f1ef;
+  --dusty-taupe-100: #ece3df;
+  --dusty-taupe-200: #d8c6c0;
+  --dusty-taupe-300: #c5aaa0;
+  --dusty-taupe-400: #b18e81;
+  --dusty-taupe-500: #9e7161;
+  --dusty-taupe-600: #7e5b4e;
+  --dusty-taupe-700: #5f443a;
+  --dusty-taupe-800: #3f2d27;
+  --dusty-taupe-900: #201713;
+  --dusty-taupe-950: #16100e;
+
+  /* Supplemental teal — "On Track" status is not covered by the source palette */
+  --teal-50: #e8f5f1;
+  --teal-400: #4fae94;
+  --teal-600: #1a7a5e;
+  --teal-700: #145f49;
+  --teal-900: #0d3a2d;
+
+  /* Supplemental red — "Denied" status */
+  --red-50: #fdecea;
+  --red-600: #b42c2c;
+  --red-700: #8f2222;
+  --red-900: #3d1010;
+
+  /* Semantic roles — light mode (see COLORS.md "Semantic Assignments") */
+  --color-bg: var(--shadow-grey-50);
+  --color-surface: #ffffff;
+  --color-border: var(--shadow-grey-200);
+  --color-text-primary: var(--shadow-grey-900);
+  --color-text-secondary: var(--dusty-taupe-600);
+  --color-text-muted: var(--dusty-taupe-400);
+  --color-primary: var(--shadow-grey-600);
+  --color-primary-hover: var(--shadow-grey-700);
+  --color-secondary: var(--vintage-grape-500);
+  --color-focus-ring: var(--shadow-grey-500);
+
+  --color-status-action: var(--faded-copper-600);
+  --color-status-action-bg: var(--faded-copper-50);
+  --color-status-track: var(--teal-600);
+  --color-status-track-bg: var(--teal-50);
+  --color-status-hold: var(--mauve-shadow-600);
+  --color-status-hold-bg: var(--mauve-shadow-50);
+  --color-status-denied: var(--red-600);
+  --color-status-denied-bg: var(--red-50);
+  --color-upload-progress: var(--faded-copper-500);
+
+  --color-presenter-bg: var(--vintage-grape-100);
+  --color-presenter-border: var(--vintage-grape-300);
+  --color-presenter-text: var(--vintage-grape-800);
+
+  /* Type scale */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --line-height-relaxed: 1.6;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Layout */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --max-w-mobile: 430px;
+  --touch-min: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--shadow-grey-950);
+    --color-surface: var(--shadow-grey-900);
+    --color-border: var(--shadow-grey-800);
+    --color-text-primary: var(--shadow-grey-50);
+    --color-text-secondary: var(--dusty-taupe-400);
+    --color-text-muted: var(--dusty-taupe-600);
+    --color-primary: var(--shadow-grey-400);
+    --color-primary-hover: var(--shadow-grey-300);
+    --color-secondary: var(--vintage-grape-400);
+    --color-focus-ring: var(--shadow-grey-400);
+
+    --color-status-action: var(--faded-copper-400);
+    --color-status-action-bg: var(--faded-copper-900);
+    --color-status-track: var(--teal-400);
+    --color-status-track-bg: var(--teal-900);
+    --color-status-hold: var(--mauve-shadow-400);
+    --color-status-hold-bg: var(--mauve-shadow-900);
+    --color-status-denied: var(--red-600);
+    --color-status-denied-bg: var(--red-900);
+
+    --color-presenter-bg: var(--vintage-grape-900);
+    --color-presenter-border: var(--vintage-grape-700);
+    --color-presenter-text: var(--vintage-grape-100);
+  }
+}

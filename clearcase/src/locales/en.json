@@ -1,0 +1,124 @@
+{
+  "app": {
+    "name": "ClearCase"
+  },
+  "header": {
+    "languageToggle": "Español",
+    "presenterMode": "Presenter mode",
+    "help": "Help"
+  },
+  "statusLabel": {
+    "received": "Received",
+    "in_review": "In Review",
+    "action_needed": "Action Needed",
+    "decision_pending": "Decision Pending",
+    "approved": "Approved",
+    "denied": "Denied",
+    "on_hold": "On Hold"
+  },
+  "entry": {
+    "heading": "Check your case",
+    "subheading": "Enter the case code from your notice to see where things stand — no account needed.",
+    "caseCodeLabel": "Case code",
+    "caseCodePlaceholder": "e.g. NNW-482931",
+    "caseCodeHint": "Your case code is on the letter or text you received. It's 3 letters, a dash, and 6 numbers.",
+    "submit": "View my case",
+    "orDivider": "or",
+    "signInLink": "Sign in with an existing account",
+    "signInHeading": "Sign in",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "signInSubmit": "Sign in",
+    "backToCaseCode": "Use a case code instead",
+    "errorInvalidFormat": "That code doesn't look right. It should look like NNW-482931.",
+    "errorExpired": "This case code has expired. Codes are valid for 30 days — request a new one or sign in.",
+    "errorNotFound": "We couldn't find a case with that code. Double check it and try again.",
+    "errorInvalidCredentials": "That email or password didn't work. Try again."
+  },
+  "status": {
+    "heading": "Your case",
+    "caseCodeLabel": "Case code",
+    "programsHeading": "Programs",
+    "timelineHeading": "Timeline",
+    "caseworkerHeading": "Your caseworker",
+    "callButton": "Call",
+    "viewChecklist": "See what's needed",
+    "onTrackMessage": "Everything looks good. No action needed from you right now.",
+    "actionNeededMessage": "We need a couple of things from you to keep this moving.",
+    "decisionPendingMessage": "Your review is complete. A decision is on the way.",
+    "onHoldMessage": "Your case is on hold. Here's why, and what happens next.",
+    "dataCallout": "In Meridian County, 1 in 3 applications is delayed for missing documents. Yours is one of them."
+  },
+  "checklist": {
+    "heading": "What's needed",
+    "subheading": "Upload these to keep your case on track. It only takes a few minutes.",
+    "deadlineLabel": "Needed by",
+    "urgentBadge": "Urgent",
+    "fulfilledBadge": "Submitted",
+    "uploadCta": "Upload",
+    "allDoneHeading": "You're all caught up",
+    "allDoneMessage": "There's nothing else we need from you right now.",
+    "dataCallout": "The average applicant takes 6 days to respond to a document request. Responding tonight keeps your case on schedule."
+  },
+  "upload": {
+    "backToChecklist": "Back to checklist",
+    "heading": "Upload: {label}",
+    "why": "Why we need this",
+    "formatHint": "Take a clear photo or choose an image/PDF file. Make sure all four corners are visible and the text is readable.",
+    "takePhoto": "Take a photo",
+    "chooseFile": "Choose a file instead",
+    "retake": "Retake photo",
+    "confirmUpload": "Looks good, submit",
+    "qualityChecking": "Checking photo quality…",
+    "qualityPass": "This photo looks clear.",
+    "qualityWarn": "This photo may be hard to read — try again in better light.",
+    "uploading": "Uploading… {progress}%",
+    "successHeading": "Uploaded",
+    "successMessage": "Your document was submitted successfully.",
+    "continue": "Continue",
+    "errorHeading": "Upload didn't go through",
+    "tryAgain": "Try again"
+  },
+  "confirmation": {
+    "heading": "You're done for now",
+    "submittedHeading": "What you submitted",
+    "docType": "Document",
+    "submittedAt": "Submitted",
+    "attachedTo": "Attached to case",
+    "expectation": "Your caseworker will review this within 3 business days. You do not need to call.",
+    "smsHeading": "Get a text when your status changes",
+    "smsPlaceholder": "Mobile phone number",
+    "smsSubmit": "Text me updates",
+    "smsConfirmed": "We'll text you when anything changes.",
+    "backToCase": "Back to my case",
+    "dataCallout": "Cases where documents are submitted via the portal are processed 40% faster than those submitted by mail or fax."
+  },
+  "help": {
+    "heading": "Help",
+    "faqHeading": "Common questions",
+    "faq": {
+      "q1": "Where do I find my case code?",
+      "a1": "It's printed on the notice you received by mail or text, formatted like NNW-482931. If you can't find it, sign in with your account instead.",
+      "q2": "What counts as proof of address?",
+      "a2": "A utility bill, lease agreement, or official mail dated within the last 60 days showing your name and current address.",
+      "q3": "What happens if I miss the deadline?",
+      "a3": "Your case may be delayed or denied for missing information. Submitting even a few days late is better than not submitting at all — upload as soon as you can."
+    },
+    "callbackHeading": "Request a callback",
+    "callbackSubtext": "Skip the hold queue. Leave your number and a caseworker will call you back.",
+    "callbackPhoneLabel": "Phone number",
+    "callbackSubmit": "Request callback",
+    "callbackConfirmed": "Got it — someone will call you back soon.",
+    "officeHeading": "Nearest office",
+    "officeAddress": "Meridian County DHS — Downtown Office",
+    "officeAddressLine": "412 5th Street, Meridian, ST 00000",
+    "officeHours": "Mon–Fri, 8:00 AM–5:00 PM",
+    "languageAssistanceHeading": "Language assistance",
+    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800.",
+    "dataCallout": "Last month, 12,000 calls to the Meridian County benefits line went unanswered. This portal is an alternative."
+  },
+  "common": {
+    "close": "Close",
+    "cancel": "Cancel"
+  }
+}
