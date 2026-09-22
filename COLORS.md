@@ -1,16 +1,36 @@
-# COLORS.md — ClearCase Tailwind Color Palette
+# COLORS.md — ClearCase Color Tokens
 
-Five custom color families for use across the ClearCase design system. All scales follow the standard Tailwind 50–950 convention. Add these under `theme.extend.colors` in `tailwind.config.js`.
+Five custom color families for the ClearCase design system. All scales follow the familiar 50–950 convention and are implemented as CSS custom properties in `src/assets/styles/tokens.css`.
 
 ---
 
-## Tailwind Config
+## CSS Token Usage
 
-```js
-// tailwind.config.js
-export default {
-  theme: {
-    extend: {
+```css
+:root {
+  --shadow-grey-50: #f2eff6;
+  --shadow-grey-600: #604a82;
+  --color-primary: var(--shadow-grey-600);
+  --color-focus-ring: var(--shadow-grey-500);
+}
+```
+
+Components should use semantic tokens such as `--color-primary`, `--color-border`, and `--color-status-action` rather than hardcoding palette values. The complete token definitions live in `src/assets/styles/tokens.css`.
+
+For reference, the palette families are:
+
+```css
+/* Palette names represented in tokens.css */
+--shadow-grey-50 ... --shadow-grey-950;
+--vintage-grape-50 ... --vintage-grape-950;
+--mauve-shadow-50 ... --mauve-shadow-950;
+--faded-copper-50 ... --faded-copper-950;
+--dusty-taupe-50 ... --dusty-taupe-950;
+```
+
+The original palette values remain documented below for design reference.
+
+<!--
       colors: {
         'shadow-grey': {
           50:  '#f2eff6',
@@ -82,6 +102,7 @@ export default {
   },
 }
 ```
+-->
 
 ---
 
@@ -200,7 +221,7 @@ Recommended mappings from palette families to ClearCase UI roles. Adjust per com
 | Focus ring | `shadow-grey-500` | `shadow-grey-400` |
 | Status: Action Needed | `faded-copper-600` | `faded-copper-400` |
 | Status: Action Needed bg | `faded-copper-50` | `faded-copper-900` |
-| Status: On Track | — (use Tailwind `teal` or add a system green) | — |
+| Status: On Track | `--color-status-track` (`--teal-600`) | `--color-status-track` (`--teal-400`) |
 | Status: On Hold | `mauve-shadow-600` | `mauve-shadow-400` |
 | Status: On Hold bg | `mauve-shadow-50` | `mauve-shadow-900` |
 | Upload in progress | `faded-copper-500` | `faded-copper-400` |
@@ -212,7 +233,7 @@ Recommended mappings from palette families to ClearCase UI roles. Adjust per com
 ## Notes
 
 - **Faded Copper vs Dusty Taupe:** These two families share the same 50 value (`#f5f1ef`) and diverge subtly in the mid-range. Faded Copper reads warmer and browner; Dusty Taupe reads cooler and greyer. Use Faded Copper for interactive warm states (upload progress, in-progress indicators) and Dusty Taupe for static neutral roles (metadata, footers, disabled).
-- **Status: On Track** is not covered by this palette — all five families are warm-to-neutral. Add a `teal` or `sage` family for confirmed/approved states, or use Tailwind's built-in `teal` scale.
+- **Status: On Track** uses the supplemental `--teal-*` tokens in `src/assets/styles/tokens.css`; the source palette remains warm-to-neutral.
 - **Accessibility:** All text pairings should be verified against WCAG AA (4.5:1 for body, 3:1 for large text). The 600–900 range on any family will pass on white; 400–500 values may not — test before using as text colors.
 - **Dark mode:** All 950 values are dark enough to serve as dark mode page backgrounds. The palette is intentionally warm-dark (no pure `#000000`), which reads better on OLED screens and aligns with the ClearCase tone.
 

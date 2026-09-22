@@ -1,8 +1,21 @@
 # Build Plan: ClearCase — Vite + Vue + Chart.js + vue-chartjs
 
-**Companion to:** `benefits-app-product-brief.md`
-**Stack:** Vite · Vue 3 (Composition API) · Vue Router · Pinia · Chart.js · vue-chartjs
+**Companion to:** `BRIEF.md`
+**Stack:** Vite 8 · Vue 3 (Composition API) · Vue Router 4 · Pinia 4 · Chart.js 4 · vue-chartjs 5 · vue-i18n 9
 **Target:** Mobile-first PWA, 375px–430px primary viewport
+
+## Current implementation status
+
+The planned prototype is implemented and deployed at https://303-public-services.vercel.app/.
+
+- The app is a root-level Vite project; there is no nested `clearcase/` application directory.
+- Core routes are implemented: entry, status, checklist, upload, confirmation, and help.
+- English and Spanish translations are implemented in independent JSON bundles. New locales can be registered in `src/main.js` and exposed through `useLocale.js`.
+- Presenter mode is implemented with three Chart.js data-story charts and plain-language screen-reader summaries.
+- Authenticated routes have fixed bottom navigation for Status, Checklist, and Help.
+- Vercel SPA rewrites support direct navigation and refreshes on client-side routes.
+- Authentication, case data, uploads, SMS opt-in, and callback requests remain local prototype simulations.
+- A production build passes with `npm run build`.
 
 ---
 
@@ -10,13 +23,13 @@
 
 | Layer | Choice | Why |
 |---|---|---|
-| Bundler | Vite 5 | Near-instant HMR, native ESM, excellent Vue plugin ecosystem |
+| Bundler | Vite 8 | Near-instant HMR, native ESM, excellent Vue plugin ecosystem |
 | Framework | Vue 3 (Composition API + `<script setup>`) | Fine-grained reactivity fits status-polling and upload-state management; SFCs keep component concerns co-located |
 | Routing | Vue Router 4 | First-class Vue 3 support; navigation guards handle case-code auth without a full auth library |
 | State | Pinia | Lightweight, devtools-friendly; replaces Vuex boilerplate for case state, upload queue, and i18n locale |
 | Charts | Chart.js 4 + vue-chartjs 5 | Thin Vue wrapper around Chart.js; reactive `data` and `options` props re-render on Pinia state changes; suits the data story callout charts |
 | Styling | CSS custom properties + scoped component styles | No build-time CSS framework dependency; custom properties support the EN/ES toggle and status-color theming |
-| i18n | vue-i18n 9 | Composable `useI18n()`; lazy-loaded locale JSON files keep the initial bundle small |
+| i18n | vue-i18n 9 | Composable `useI18n()` with independent English and Spanish JSON bundles |
 | PWA | vite-plugin-pwa | Workbox-based service worker; enables offline status caching (stretch goal) |
 
 ---
@@ -80,7 +93,7 @@ export default defineConfig({
 ## 3. Directory Structure
 
 ```
-clearcase/
+./
 ├── public/
 │   └── favicon.svg
 ├── src/
@@ -91,6 +104,7 @@ clearcase/
 │   ├── components/
 │   │   ├── common/
 │   │   │   ├── AppHeader.vue       # Logo + language toggle
+│   │   │   ├── AppBottomNav.vue    # Fixed authenticated route navigation
 │   │   │   ├── StatusBadge.vue     # Reusable status pill (Action Needed / On Track / etc.)
 │   │   │   ├── ProgressBar.vue     # Upload progress, timeline steps
 │   │   │   └── HelpDrawer.vue      # Slide-up help panel, accessible
@@ -143,6 +157,7 @@ clearcase/
 │   ├── App.vue
 │   └── main.js
 ├── index.html
+├── vercel.json                     # SPA fallback rewrites
 ├── vite.config.js
 └── package.json
 ```
@@ -201,9 +216,9 @@ export const useCaseStore = defineStore('case', {
     isAuthenticated: false,
     caseCode: null,
     applicant: null,
-    programs: [],          // Array of { id, name, status, statusLabel }
+    programs: [],          // Array of { id, nameKey, status }
     overallStatus: null,   // 'action_needed' | 'in_review' | 'approved' | ...
-    requirements: [],      // Array of { id, label, description, deadline, fulfilled }
+    requirements: [],      // Array of { id, labelKey, descriptionKey, deadline, fulfilled }
     caseworker: null,
     timeline: [],          // Array of { date, event, completed }
     submittedDocs: []
@@ -497,8 +512,8 @@ export const rosaCase = {
   applicant: { name: 'Rosa M.', language: 'es' },
   overallStatus: 'action_needed',
   programs: [
-    { id: 'nnw', name: 'NourishNow', status: 'action_needed', statusLabel: 'Action Needed' },
-    { id: 'cah', name: 'CoverAll Health', status: 'in_review', statusLabel: 'In Review' }
+    { id: 'nnw', nameKey: 'nourishNow', status: 'action_needed' },
+    { id: 'cah', nameKey: 'coverAllHealth', status: 'in_review' }
   ],
   caseworker: { name: 'Elena Vargas', phone: '(555) 204-8812', ext: '214' },
   timeline: [

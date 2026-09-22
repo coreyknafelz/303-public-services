@@ -4,7 +4,13 @@
 **Format:** Mobile-first responsive web experience
 **Audience:** Benefits applicants, age 18+, using a personal or shared smartphone
 **Deliverable type:** Interactive data story / prototype
-**Version:** 1.0 — Initial scoping brief
+**Version:** 1.1 — Prototype implementation update
+
+### Current prototype status
+
+The prototype is implemented as a root-level Vite/Vue application and is deployed at [303-public-services.vercel.app](https://303-public-services.vercel.app/). The current build includes the core entry, status, checklist, upload, confirmation, and help flows; English and Spanish locale bundles; Presenter mode; accessible chart summaries; a fixed authenticated bottom navigation bar; and Vercel SPA route rewrites.
+
+The app uses Rosa's fixture data and simulated authentication, upload, SMS opt-in, and callback behavior. It is not connected to a production benefits system.
 
 ---
 
