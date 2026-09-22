@@ -26,7 +26,10 @@
     "unansweredCalls": "{count} unanswered calls",
     "mailFax": "Mail / fax",
     "portalUpload": "Portal upload",
-    "relativeProcessingTime": "Relative processing time: {value}"
+    "relativeProcessingTime": "Relative processing time: {value}",
+    "delaySummary": "Delay breakdown: 35% urgent and 65% in review.",
+    "processingSummary": "Relative processing time: mail or fax 100%; portal upload 60%.",
+    "callVolumeSummary": "Unanswered calls by week: week 1, 2,200; week 2, 3,100; week 3, 3,500; week 4, 3,200."
   },
   "header": {
     "languageToggle": "Español",

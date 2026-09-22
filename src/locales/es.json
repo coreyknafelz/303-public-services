@@ -26,7 +26,10 @@
     "unansweredCalls": "{count} llamadas sin respuesta",
     "mailFax": "Correo / fax",
     "portalUpload": "Carga en el portal",
-    "relativeProcessingTime": "Tiempo relativo de procesamiento: {value}"
+    "relativeProcessingTime": "Tiempo relativo de procesamiento: {value}",
+    "delaySummary": "Desglose de retrasos: 35% urgente y 65% en revisión.",
+    "processingSummary": "Tiempo relativo de procesamiento: correo o fax 100%; carga en el portal 60%.",
+    "callVolumeSummary": "Llamadas sin respuesta por semana: semana 1, 2,200; semana 2, 3,100; semana 3, 3,500; semana 4, 3,200."
   },
   "header": {
     "languageToggle": "English",

@@ -38,7 +38,7 @@ const chartOptions = {
 </script>
 
 <template>
-  <div class="call-volume-area">
+  <div class="call-volume-area" role="img" :aria-label="t('charts.callVolumeSummary')">
     <div class="call-volume-area__chart-wrap">
       <Line :data="chartData" :options="chartOptions" />
     </div>

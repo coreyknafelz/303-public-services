@@ -33,7 +33,7 @@ const chartOptions = {
 </script>
 
 <template>
-  <div class="delay-donut">
+  <div class="delay-donut" role="img" :aria-label="t('charts.delaySummary')">
     <div class="delay-donut__chart-wrap">
       <Doughnut :data="chartData" :options="chartOptions" />
       <div class="delay-donut__center-label" aria-hidden="true">

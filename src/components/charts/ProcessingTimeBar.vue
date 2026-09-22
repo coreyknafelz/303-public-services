@@ -37,7 +37,7 @@ const chartOptions = {
 </script>
 
 <template>
-  <div class="processing-time-bar">
+  <div class="processing-time-bar" role="img" :aria-label="t('charts.processingSummary')">
     <div class="processing-time-bar__chart-wrap">
       <Bar :data="chartData" :options="chartOptions" />
     </div>
