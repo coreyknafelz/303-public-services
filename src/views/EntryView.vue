@@ -94,10 +94,11 @@ function switchMode(next) {
   width: 100%;
   max-width: 260px;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 .entry-view__brand :deep(svg *) {
-  fill: white;
+  fill: currentColor;
 }
 
 .entry-view__heading {
