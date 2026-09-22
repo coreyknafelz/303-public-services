@@ -102,9 +102,6 @@
   --color-status-denied-bg: var(--red-50);
   --color-upload-progress: var(--faded-copper-500);
 
-  --color-presenter-bg: var(--vintage-grape-100);
-  --color-presenter-border: var(--vintage-grape-300);
-  --color-presenter-text: var(--vintage-grape-800);
 
   /* Type scale */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -156,8 +153,5 @@
     --color-status-denied: var(--red-600);
     --color-status-denied-bg: var(--red-900);
 
-    --color-presenter-bg: var(--vintage-grape-900);
-    --color-presenter-border: var(--vintage-grape-700);
-    --color-presenter-text: var(--vintage-grape-100);
   }
 }

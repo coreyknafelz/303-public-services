@@ -1,11 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUiStore } from '@/stores/uiStore'
-import CallVolumeArea from '@/components/charts/CallVolumeArea.vue'
 
 const { t, locale } = useI18n()
-const uiStore = useUiStore()
 
 const callbackPhone = ref('')
 const callbackConfirmed = ref(false)
@@ -58,7 +55,6 @@ const faqs = ['q1', 'q2', 'q3']
       <p>{{ t('help.languageAssistanceText') }}</p>
     </section>
 
-    <CallVolumeArea v-if="uiStore.presenterMode" />
   </div>
 </template>
 

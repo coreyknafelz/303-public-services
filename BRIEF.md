@@ -8,7 +8,7 @@
 
 ### Current prototype status
 
-The prototype is implemented as a root-level Vite/Vue application and is deployed at [303-public-services.vercel.app](https://303-public-services.vercel.app/). The current build includes the core entry, status, checklist, upload, confirmation, and help flows; English and Spanish locale bundles; Presenter mode; accessible chart summaries; a fixed authenticated bottom navigation bar; and Vercel SPA route rewrites.
+The prototype is implemented as a root-level Vite/Vue application and is deployed at [303-public-services.vercel.app](https://303-public-services.vercel.app/). The current build includes the core entry, status, checklist, upload, confirmation, and help flows; English and Spanish locale bundles; accessible core workflow controls; a fixed authenticated bottom navigation bar; and Vercel SPA route rewrites.
 
 The app uses Rosa's fixture data and simulated authentication, upload, SMS opt-in, and callback behavior. It is not connected to a production benefits system.
 
@@ -230,18 +230,18 @@ These are explicitly out of scope for the initial prototype but should be archit
 
 ---
 
-## 8. Data Story Layer
+## 8. Data Context (Future)
 
-The interactive experience is not just a UI prototype — it is a data story. To that end, the prototype should surface contextual data that helps a viewer understand the systemic problem alongside Rosa's individual experience.
+The product brief reserves a future data-context layer to help viewers understand the systemic problem alongside Rosa's individual experience. It is not part of the current user interface.
 
-**Suggested data callouts to integrate (as tooltips, interstitials, or an optional "context mode"):**
+**Possible future data callouts:**
 
 - On the status screen: *"In Meridian County, 1 in 3 applications is delayed for missing documents. Yours is one of them."*
 - On the requirements checklist: *"The average applicant takes 6 days to respond to a document request. Responding tonight keeps your case on schedule."*
 - On confirmation: *"Cases where documents are submitted via the portal are processed 40% faster than those submitted by mail or fax."*
 - On the help screen: *"Last month, 12,000 calls to the Meridian County benefits line went unanswered. This portal is an alternative."*
 
-These callouts should be toggleable — visible in a presentation / storytelling mode, hideable in a usability test mode.
+Any future contextual layer should be designed separately from the core case workflow and should remain optional.
 
 ---
 
@@ -272,7 +272,7 @@ The prototype succeeds if a viewer can:
 ## 11. Open Questions
 
 - Should the case code entry support QR scan-to-fill (camera permission) or manual entry only?
-- Is the data story layer integrated into the main flow or surfaced separately (e.g., a presenter mode toggle)?
+- Is a future data-context layer needed, and where should it live without adding complexity to the core workflow?
 - What is the handoff format: Figma annotations, a live hosted URL, or an exportable HTML/React component?
 - Should the experience include a caseworker-side view (showing what the uploaded documents look like in review)?
 - For the multilingual stretch goal: do we use real Spanish translations or placeholder language tagging?

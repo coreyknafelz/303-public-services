@@ -6,7 +6,6 @@ import { useUiStore } from '@/stores/uiStore'
 import StatusOverview from '@/components/status/StatusOverview.vue'
 import CaseworkerInfo from '@/components/status/CaseworkerInfo.vue'
 import TimelineSteps from '@/components/charts/TimelineSteps.vue'
-import DelayDonutChart from '@/components/charts/DelayDonutChart.vue'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -36,7 +35,6 @@ const uiStore = useUiStore()
       <CaseworkerInfo v-if="caseStore.caseworker" :caseworker="caseStore.caseworker" />
     </template>
 
-    <DelayDonutChart v-if="uiStore.presenterMode" class="status-view__chart" />
   </div>
 </template>
 
@@ -58,7 +56,4 @@ const uiStore = useUiStore()
   font-size: var(--text-base);
 }
 
-.status-view__chart {
-  margin-top: var(--space-2);
-}
 </style>

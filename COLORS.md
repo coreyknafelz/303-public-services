@@ -225,8 +225,6 @@ Recommended mappings from palette families to ClearCase UI roles. Adjust per com
 | Status: On Hold | `mauve-shadow-600` | `mauve-shadow-400` |
 | Status: On Hold bg | `mauve-shadow-50` | `mauve-shadow-900` |
 | Upload in progress | `faded-copper-500` | `faded-copper-400` |
-| Presenter callout bg | `vintage-grape-100` | `vintage-grape-900` |
-| Presenter callout border | `vintage-grape-300` | `vintage-grape-700` |
 
 ---
 

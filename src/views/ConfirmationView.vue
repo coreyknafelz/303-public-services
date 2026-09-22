@@ -2,15 +2,12 @@
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useCaseStore } from '@/stores/caseStore'
-import { useUiStore } from '@/stores/uiStore'
 import SubmissionSummary from '@/components/confirmation/SubmissionSummary.vue'
 import SmsOptIn from '@/components/confirmation/SmsOptIn.vue'
-import ProcessingTimeBar from '@/components/charts/ProcessingTimeBar.vue'
 
 const { t } = useI18n()
 const router = useRouter()
 const caseStore = useCaseStore()
-const uiStore = useUiStore()
 </script>
 
 <template>
@@ -21,8 +18,6 @@ const uiStore = useUiStore()
     <SubmissionSummary v-if="caseStore.submittedDocs.length" :docs="caseStore.submittedDocs" :case-code="caseStore.caseCode" />
 
     <SmsOptIn />
-
-    <ProcessingTimeBar v-if="uiStore.presenterMode" />
 
     <button type="button" class="confirmation-view__back" @click="router.push({ name: 'status' })">
       {{ t('confirmation.backToCase') }}

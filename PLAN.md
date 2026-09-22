@@ -1,7 +1,7 @@
-# Build Plan: ClearCase — Vite + Vue + Chart.js + vue-chartjs
+# Build Plan: ClearCase — Vite + Vue
 
 **Companion to:** `BRIEF.md`
-**Stack:** Vite 8 · Vue 3 (Composition API) · Vue Router 4 · Pinia 4 · Chart.js 4 · vue-chartjs 5 · vue-i18n 9
+**Stack:** Vite 8 · Vue 3 (Composition API) · Vue Router 4 · Pinia 4 · vue-i18n 9
 **Target:** Mobile-first PWA, 375px–430px primary viewport
 
 ## Current implementation status
@@ -11,7 +11,6 @@ The planned prototype is implemented and deployed at https://303-public-services
 - The app is a root-level Vite project; there is no nested `clearcase/` application directory.
 - Core routes are implemented: entry, status, checklist, upload, confirmation, and help.
 - English and Spanish translations are implemented in independent JSON bundles. New locales can be registered in `src/main.js` and exposed through `useLocale.js`.
-- Presenter mode is implemented with three Chart.js data-story charts and plain-language screen-reader summaries.
 - Authenticated routes have fixed bottom navigation for Status, Checklist, and Help.
 - Vercel SPA rewrites support direct navigation and refreshes on client-side routes.
 - Authentication, case data, uploads, SMS opt-in, and callback requests remain local prototype simulations.
@@ -27,7 +26,6 @@ The planned prototype is implemented and deployed at https://303-public-services
 | Framework | Vue 3 (Composition API + `<script setup>`) | Fine-grained reactivity fits status-polling and upload-state management; SFCs keep component concerns co-located |
 | Routing | Vue Router 4 | First-class Vue 3 support; navigation guards handle case-code auth without a full auth library |
 | State | Pinia | Lightweight, devtools-friendly; replaces Vuex boilerplate for case state, upload queue, and i18n locale |
-| Charts | Chart.js 4 + vue-chartjs 5 | Thin Vue wrapper around Chart.js; reactive `data` and `options` props re-render on Pinia state changes; suits the data story callout charts |
 | Styling | CSS custom properties + scoped component styles | No build-time CSS framework dependency; custom properties support the EN/ES toggle and status-color theming |
 | i18n | vue-i18n 9 | Composable `useI18n()` with independent English and Spanish JSON bundles |
 | PWA | vite-plugin-pwa | Workbox-based service worker; enables offline status caching (stretch goal) |
@@ -43,9 +41,6 @@ cd clearcase
 
 # Core dependencies
 npm install vue-router@4 pinia
-
-# Chart dependencies
-npm install chart.js vue-chartjs
 
 # i18n
 npm install vue-i18n@9
@@ -109,10 +104,7 @@ export default defineConfig({
 │   │   │   ├── ProgressBar.vue     # Upload progress, timeline steps
 │   │   │   └── HelpDrawer.vue      # Slide-up help panel, accessible
 │   │   ├── charts/
-│   │   │   ├── DelayDonutChart.vue     # "1 in 3 applications delayed" — Doughnut
-│   │   │   ├── ProcessingTimeBar.vue   # "40% faster via portal" — Bar
-│   │   │   ├── CallVolumeArea.vue      # "12,000 unanswered calls" — Line/Area
-│   │   │   └── TimelineSteps.vue       # Case timeline — custom horizontal step chart
+│   │   │   └── TimelineSteps.vue       # Case timeline — custom CSS step chart
 │   │   ├── entry/
 │   │   │   ├── CaseCodeInput.vue
 │   │   │   └── SignInForm.vue
@@ -141,7 +133,7 @@ export default defineConfig({
 │   ├── stores/
 │   │   ├── caseStore.js            # Application status, program states, caseworker
 │   │   ├── uploadStore.js          # Queue, progress, retry state
-│   │   └── uiStore.js              # Locale, presenter mode, help drawer open
+│   │   └── uiStore.js              # Locale, low-bandwidth mode, help drawer open
 │   ├── composables/
 │   │   ├── useUpload.js            # Camera capture, file compression, POST logic
 │   │   ├── useQualityCheck.js      # Canvas-based brightness analysis
@@ -294,7 +286,7 @@ export const useUploadStore = defineStore('upload', {
 })
 ```
 
-### `uiStore.js` — Locale, presenter mode, UI chrome
+### `uiStore.js` — Locale and UI chrome
 
 ```js
 // src/stores/uiStore.js
@@ -303,7 +295,6 @@ import { defineStore } from 'pinia'
 export const useUiStore = defineStore('ui', {
   state: () => ({
     locale: localStorage.getItem('clearcase-locale') || 'en',
-    presenterMode: false,   // Shows data story callout panels
     helpDrawerOpen: false,
     lowBandwidth: false
   }),
@@ -312,103 +303,13 @@ export const useUiStore = defineStore('ui', {
       this.locale = this.locale === 'en' ? 'es' : 'en'
       localStorage.setItem('clearcase-locale', this.locale)
     },
-    togglePresenterMode() {
-      this.presenterMode = !this.presenterMode
-    }
   }
 })
 ```
 
 ---
 
-## 6. Chart.js Integration (vue-chartjs)
-
-All four charts wrap vue-chartjs components. They receive computed `chartData` and `chartOptions` derived from Pinia state, so they re-render reactively.
-
-### Global Chart.js registration
-
-```js
-// src/main.js
-import {
-  Chart as ChartJS,
-  ArcElement, DoughnutController,
-  BarElement, BarController, CategoryScale,
-  LinearScale, PointElement, LineElement, LineController, Filler,
-  Tooltip, Legend
-} from 'chart.js'
-
-ChartJS.register(
-  ArcElement, DoughnutController,
-  BarElement, BarController, CategoryScale,
-  LinearScale, PointElement, LineElement, LineController, Filler,
-  Tooltip, Legend
-)
-```
-
-Register only what's used — this trims ~30KB from the Chart.js bundle.
-
-### Example: `DelayDonutChart.vue`
-
-The data story callout showing that 1 in 3 applications is delayed.
-
-```vue
-<script setup>
-import { computed } from 'vue'
-import { Doughnut } from 'vue-chartjs'
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
-
-const chartData = computed(() => ({
-  labels: [t('chart.delay.delayed'), t('chart.delay.onTrack')],
-  datasets: [{
-    data: [35, 65],
-    backgroundColor: ['#D97B2B', '#E8EDF2'],
-    borderWidth: 0,
-    hoverOffset: 4
-  }]
-}))
-
-const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  cutout: '72%',
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      callbacks: {
-        label: (ctx) => ` ${ctx.parsed}% of applications`
-      }
-    }
-  }
-}
-</script>
-
-<template>
-  <div class="chart-wrap">
-    <Doughnut :data="chartData" :options="chartOptions" />
-    <div class="chart-center-label">
-      <span class="chart-pct">35%</span>
-      <span class="chart-sub">{{ t('chart.delay.label') }}</span>
-    </div>
-  </div>
-</template>
-```
-
-### Chart inventory
-
-| Component | Chart.js type | Data story moment | Route |
-|---|---|---|---|
-| `DelayDonutChart` | Doughnut | "1 in 3 applications delayed for docs" | `/status` |
-| `ProcessingTimeBar` | Horizontal Bar | "Portal submissions processed 40% faster" | `/confirmation` |
-| `CallVolumeArea` | Line + Filler | "12,000 unanswered calls last month" | `/help` |
-| `TimelineSteps` | Custom (drawn on canvas or CSS) | Rosa's case timeline | `/status` |
-
-Charts are only mounted when `uiStore.presenterMode === true`, so they don't appear during a standard usability test walk-through — they're a toggle layer for storytelling contexts.
-
----
-
-## 7. Key Composables
+## 6. Key Composables
 
 ### `useUpload.js` — Camera capture + file prep
 
@@ -503,7 +404,7 @@ export function useBandwidth() {
 
 ---
 
-## 8. Fixture Data: Rosa's Case
+## 7. Fixture Data: Rosa's Case
 
 ```js
 // src/data/rosaCase.js
@@ -547,7 +448,7 @@ export const rosaCase = {
 
 ---
 
-## 9. Internationalisation (vue-i18n 9)
+## 8. Internationalisation (vue-i18n 9)
 
 ```js
 // src/main.js (addition)
@@ -590,7 +491,7 @@ Spanish locale is a lazy import — zero bytes on the initial load for English-p
 
 ---
 
-## 10. Styling: CSS Custom Properties
+## 9. Styling: CSS Custom Properties
 
 ```css
 /* src/assets/styles/tokens.css */
@@ -646,7 +547,7 @@ No utility framework. Component styles are scoped. The token file is the single 
 
 ---
 
-## 11. Build Phases
+## 10. Build Phases
 
 ### Phase 0 — Foundation (Days 1–2)
 
@@ -688,15 +589,9 @@ No utility framework. Component styles are scoped. The token file is the single 
 
 **Checkpoint:** Full primary flow navigable end to end.
 
-### Phase 4 — Data Story Layer (Days 12–14)
+### Phase 4 — Removed Data Story Layer
 
-- Chart.js global registration (tree-shaken)
-- All four chart components built and tested
-- Presenter mode toggle in `AppHeader`
-- Chart callout panels integrated into Status, Confirmation, and Help views, gated on `uiStore.presenterMode`
-- Chart.js `chartOptions` fully responsive (`maintainAspectRatio: false`, container-based sizing)
-
-**Checkpoint:** Presenter mode toggle reveals charts with data story callouts; disabling hides them cleanly.
+The optional data-story chart layer was removed from the current prototype so the product stays focused on the applicant's core workflow.
 
 ### Phase 5 — Stretch Goals + Polish (Days 15–18)
 
@@ -710,30 +605,28 @@ No utility framework. Component styles are scoped. The token file is the single 
 
 - Lighthouse mobile audit (target: Performance ≥ 85, Accessibility ≥ 95)
 - Bundle analysis (`vite-bundle-visualizer`) — identify and trim any unexpected heavy imports
-- README with run instructions, fixture case code, and presenter mode toggle docs
+- README with run instructions, fixture case code, and current navigation docs
 - Optional: `vite build` → deploy to Netlify or Vercel preview URL for stakeholder review
 
 ---
 
-## 12. Performance Targets
+## 11. Performance Targets
 
 | Metric | Target |
 |---|---|
 | First Contentful Paint (3G) | < 2.0s |
 | Time to Interactive (3G) | < 3.5s |
 | Initial JS bundle (gzipped) | < 120KB |
-| Chart.js contribution | < 45KB (tree-shaken) |
 | Lighthouse Accessibility | ≥ 95 |
 | Lighthouse Performance | ≥ 85 |
 | Touch targets | 100% ≥ 44×44px |
 
 ---
 
-## 13. Open Technical Questions
+## 12. Open Technical Questions
 
 - **Simulated upload:** Use `setTimeout`-based fake progress or a local service worker intercepting a real `fetch`? The latter is more realistic for demonstrating low-bandwidth behavior.
 - **Quality check threshold:** Tune the brightness heuristic against real phone photos before locking in values — 40/230 are starting points.
-- **Chart accessibility:** Chart.js charts are not screen-reader-friendly by default; decide early whether to add ARIA `table` fallbacks or exclude charts from the accessible flow (acceptable since they're presenter-mode only).
 - **SMS opt-in:** Mock only, or hook into a Twilio sandbox for live demo?
 - **vue-i18n date/number formatting:** Rosa's deadlines should format correctly in both locales (`2026-09-28` → `September 28, 2026` EN / `28 de septiembre de 2026` ES).
 

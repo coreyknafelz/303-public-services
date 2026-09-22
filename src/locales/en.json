@@ -27,19 +27,8 @@
     "proofOfAddress": "Proof of address",
     "proofOfAddressDescription": "A utility bill, lease agreement, or official mail showing your current address."
   },
-  "charts": {
-    "week": "Wk {number}",
-    "unansweredCalls": "{count} unanswered calls",
-    "mailFax": "Mail / fax",
-    "portalUpload": "Portal upload",
-    "relativeProcessingTime": "Relative processing time: {value}",
-    "delaySummary": "Delay breakdown: 35% urgent and 65% in review.",
-    "processingSummary": "Relative processing time: mail or fax 100%; portal upload 60%.",
-    "callVolumeSummary": "Unanswered calls by week: week 1, 2,200; week 2, 3,100; week 3, 3,500; week 4, 3,200."
-  },
   "header": {
     "languageToggle": "Español",
-    "presenterMode": "Presenter mode",
     "help": "Help"
   },
   "statusLabel": {
@@ -81,8 +70,7 @@
     "onTrackMessage": "Everything looks good. No action needed from you right now.",
     "actionNeededMessage": "We need a couple of things from you to keep this moving.",
     "decisionPendingMessage": "Your review is complete. A decision is on the way.",
-    "onHoldMessage": "Your case is on hold. Here's why, and what happens next.",
-    "dataCallout": "In Meridian County, 1 in 3 applications is delayed for missing documents. Yours is one of them."
+    "onHoldMessage": "Your case is on hold. Here's why, and what happens next."
   },
   "checklist": {
     "heading": "What's needed",
@@ -92,8 +80,7 @@
     "fulfilledBadge": "Submitted",
     "uploadCta": "Upload",
     "allDoneHeading": "You're all caught up",
-    "allDoneMessage": "There's nothing else we need from you right now.",
-    "dataCallout": "The average applicant takes 6 days to respond to a document request. Responding tonight keeps your case on schedule."
+    "allDoneMessage": "There's nothing else we need from you right now."
   },
   "upload": {
     "backToChecklist": "Back to checklist",
@@ -135,8 +122,7 @@
     "smsPlaceholder": "Mobile phone number",
     "smsSubmit": "Text me updates",
     "smsConfirmed": "We'll text you when anything changes.",
-    "backToCase": "Back to my case",
-    "dataCallout": "Cases where documents are submitted via the portal are processed 40% faster than those submitted by mail or fax."
+    "backToCase": "Back to my case"
   },
   "help": {
     "heading": "Help",
@@ -159,8 +145,7 @@
     "officeAddressLine": "412 5th Street, Meridian, ST 00000",
     "officeHours": "Mon–Fri, 8:00 AM–5:00 PM",
     "languageAssistanceHeading": "Language assistance",
-    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800.",
-    "dataCallout": "Last month, 12,000 calls to the Meridian County benefits line went unanswered. This portal is an alternative."
+    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800."
   },
   "common": {
     "close": "Close",

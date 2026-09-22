@@ -27,19 +27,8 @@
     "proofOfAddress": "Comprobante de domicilio",
     "proofOfAddressDescription": "Una factura de servicios, contrato de alquiler o correo oficial que muestre tu domicilio actual."
   },
-  "charts": {
-    "week": "Sem. {number}",
-    "unansweredCalls": "{count} llamadas sin respuesta",
-    "mailFax": "Correo / fax",
-    "portalUpload": "Carga en el portal",
-    "relativeProcessingTime": "Tiempo relativo de procesamiento: {value}",
-    "delaySummary": "Desglose de retrasos: 35% urgente y 65% en revisión.",
-    "processingSummary": "Tiempo relativo de procesamiento: correo o fax 100%; carga en el portal 60%.",
-    "callVolumeSummary": "Llamadas sin respuesta por semana: semana 1, 2,200; semana 2, 3,100; semana 3, 3,500; semana 4, 3,200."
-  },
   "header": {
     "languageToggle": "English",
-    "presenterMode": "Modo presentador",
     "help": "Ayuda"
   },
   "statusLabel": {
@@ -81,8 +70,7 @@
     "onTrackMessage": "Todo se ve bien. No necesitas hacer nada por ahora.",
     "actionNeededMessage": "Necesitamos un par de cosas de tu parte para seguir avanzando.",
     "decisionPendingMessage": "Tu revisión está completa. Una decisión está en camino.",
-    "onHoldMessage": "Tu caso está en espera. Aquí está el motivo y qué sigue.",
-    "dataCallout": "En el condado de Meridian, 1 de cada 3 solicitudes se retrasa por documentos faltantes. La tuya es una de ellas."
+    "onHoldMessage": "Tu caso está en espera. Aquí está el motivo y qué sigue."
   },
   "checklist": {
     "heading": "Qué se necesita",
@@ -92,8 +80,7 @@
     "fulfilledBadge": "Enviado",
     "uploadCta": "Subir",
     "allDoneHeading": "Ya estás al día",
-    "allDoneMessage": "No necesitamos nada más de tu parte por ahora.",
-    "dataCallout": "El solicitante promedio tarda 6 días en responder a una solicitud de documentos. Responder esta noche mantiene tu caso al día."
+    "allDoneMessage": "No necesitamos nada más de tu parte por ahora."
   },
   "upload": {
     "backToChecklist": "Volver a la lista",
@@ -135,8 +122,7 @@
     "smsPlaceholder": "Número de celular",
     "smsSubmit": "Enviarme actualizaciones",
     "smsConfirmed": "Te enviaremos un mensaje cuando algo cambie.",
-    "backToCase": "Volver a mi caso",
-    "dataCallout": "Los casos donde los documentos se envían por el portal se procesan 40% más rápido que los enviados por correo o fax."
+    "backToCase": "Volver a mi caso"
   },
   "help": {
     "heading": "Ayuda",
@@ -159,8 +145,7 @@
     "officeAddressLine": "412 5th Street, Meridian, ST 00000",
     "officeHours": "Lun–Vie, 8:00 a.m.–5:00 p.m.",
     "languageAssistanceHeading": "Asistencia en tu idioma",
-    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800.",
-    "dataCallout": "El mes pasado, 12,000 llamadas a la línea de beneficios del condado de Meridian quedaron sin respuesta. Este portal es una alternativa."
+    "languageAssistanceText": "Habla con alguien en español: llame al (555) 204-8800."
   },
   "common": {
     "close": "Cerrar",

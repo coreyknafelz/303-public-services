@@ -13,15 +13,6 @@ const { toggle } = useLocale()
     <RouterLink to="/" class="app-header__brand">{{ t('app.name') }}</RouterLink>
 
     <div class="app-header__actions">
-      <button
-        type="button"
-        class="app-header__btn app-header__btn--presenter"
-        :class="{ 'is-active': uiStore.presenterMode }"
-        :aria-pressed="uiStore.presenterMode"
-        @click="uiStore.togglePresenterMode()"
-      >
-        {{ t('header.presenterMode') }}
-      </button>
       <button type="button" class="app-header__btn" @click="toggle()">
         {{ t('header.languageToggle') }}
       </button>
@@ -66,12 +57,6 @@ const { toggle } = useLocale()
   padding: var(--space-1) var(--space-3);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-}
-
-.app-header__btn--presenter.is-active {
-  background: var(--color-presenter-bg);
-  border-color: var(--color-presenter-border);
-  color: var(--color-secondary);
 }
 
 .app-header__btn--help {
