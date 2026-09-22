@@ -58,7 +58,7 @@ async function handleConfirm() {
     caseStore.markRequirementFulfilled(requirement.value.id)
     caseStore.addSubmittedDoc({
       requirementId: requirement.value.id,
-      label: requirement.value.label,
+      labelKey: requirement.value.labelKey,
       submittedAt: new Date().toISOString(),
     })
   }
@@ -77,11 +77,11 @@ function handleTryAgain() {
   <div v-if="requirement" class="upload-view">
     <RouterLink :to="{ name: 'checklist' }" class="upload-view__back">{{ t('upload.backToChecklist') }}</RouterLink>
 
-    <h1 class="upload-view__heading">{{ t('upload.heading', { label: requirement.label }) }}</h1>
+    <h1 class="upload-view__heading">{{ t('upload.heading', { label: t(`requirements.${requirement.labelKey}`) }) }}</h1>
 
     <div class="upload-view__why">
       <p class="upload-view__why-label">{{ t('upload.why') }}</p>
-      <p>{{ requirement.description }}</p>
+      <p>{{ t(`requirements.${requirement.descriptionKey}`) }}</p>
     </div>
 
     <template v-if="uploadStore.status === 'idle'">
@@ -114,8 +114,8 @@ function handleTryAgain() {
     <template v-else-if="uploadStore.status === 'error'">
       <div class="upload-view__result upload-view__result--error">
         <h2>{{ t('upload.errorHeading') }}</h2>
-        <p>{{ uploadStore.error.message }}</p>
-        <p class="upload-view__recovery">{{ uploadStore.error.recoveryAction }}</p>
+        <p>{{ t(`upload.errors.${uploadStore.error.code}.message`) }}</p>
+        <p class="upload-view__recovery">{{ t(`upload.errors.${uploadStore.error.code}.recoveryAction`) }}</p>
         <button type="button" class="upload-view__continue" @click="handleTryAgain">{{ t('upload.tryAgain') }}</button>
       </div>
     </template>

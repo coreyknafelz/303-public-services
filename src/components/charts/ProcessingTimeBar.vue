@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const chartData = computed(() => ({
-  labels: ['Mail / fax', 'Portal upload'],
+  labels: [t('charts.mailFax'), t('charts.portalUpload')],
   datasets: [
     {
       data: [100, 60],
@@ -29,7 +29,7 @@ const chartOptions = {
     legend: { display: false },
     tooltip: {
       callbacks: {
-        label: (ctx) => ` relative processing time: ${ctx.parsed.x}`,
+        label: (ctx) => ` ${t('charts.relativeProcessingTime', { value: ctx.parsed.x })}`,
       },
     },
   },

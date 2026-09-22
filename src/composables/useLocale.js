@@ -1,19 +1,12 @@
 import { useI18n } from 'vue-i18n'
 import { useUiStore } from '@/stores/uiStore'
 
-const loadedLocales = new Set(['en'])
-
-/** Toggles the active locale, lazily importing the Spanish bundle on first use. */
+/** Toggles the active locale while keeping locale bundles independent. */
 export function useLocale() {
-  const { locale, setLocaleMessage } = useI18n()
+  const { locale } = useI18n()
   const uiStore = useUiStore()
 
   async function setLocale(next) {
-    if (next === 'es' && !loadedLocales.has('es')) {
-      const es = await import('@/locales/es.json')
-      setLocaleMessage('es', es.default)
-      loadedLocales.add('es')
-    }
     locale.value = next
     uiStore.setLocale(next)
   }

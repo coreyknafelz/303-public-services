@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const chartData = computed(() => ({
-  labels: ['Wk 1', 'Wk 2', 'Wk 3', 'Wk 4'],
+  labels: [t('charts.week', { number: 1 }), t('charts.week', { number: 2 }), t('charts.week', { number: 3 }), t('charts.week', { number: 4 })],
   datasets: [
     {
       data: [2200, 3100, 3500, 3200],
@@ -30,7 +30,7 @@ const chartOptions = {
     legend: { display: false },
     tooltip: {
       callbacks: {
-        label: (ctx) => ` ${ctx.parsed.y.toLocaleString()} unanswered calls`,
+        label: (ctx) => ` ${t('charts.unansweredCalls', { count: ctx.parsed.y.toLocaleString() })}`,
       },
     },
   },

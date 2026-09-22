@@ -2,6 +2,32 @@
   "app": {
     "name": "ClearCase"
   },
+  "programs": {
+    "nourishNow": "NourishNow",
+    "coverAllHealth": "CoverAll Health"
+  },
+  "timeline": {
+    "events": {
+      "applicationSubmitted": "Solicitud enviada",
+      "identityVerified": "Identidad verificada",
+      "documentReview": "Revisión de documentos",
+      "eligibilityDetermination": "Determinación de elegibilidad",
+      "decisionIssued": "Decisión emitida"
+    }
+  },
+  "requirements": {
+    "proofOfIncome": "Comprobante de ingresos",
+    "proofOfIncomeDescription": "Un talón de pago, carta de beneficios o declaración de trabajo por cuenta propia de los últimos 30 días.",
+    "proofOfAddress": "Comprobante de domicilio",
+    "proofOfAddressDescription": "Una factura de servicios, contrato de alquiler o correo oficial que muestre tu domicilio actual."
+  },
+  "charts": {
+    "week": "Sem. {number}",
+    "unansweredCalls": "{count} llamadas sin respuesta",
+    "mailFax": "Correo / fax",
+    "portalUpload": "Carga en el portal",
+    "relativeProcessingTime": "Tiempo relativo de procesamiento: {value}"
+  },
   "header": {
     "languageToggle": "English",
     "presenterMode": "Modo presentador",
@@ -77,7 +103,17 @@
     "successMessage": "Tu documento se envió correctamente.",
     "continue": "Continuar",
     "errorHeading": "La subida no se completó",
-    "tryAgain": "Intentar de nuevo"
+    "tryAgain": "Intentar de nuevo",
+    "errors": {
+      "network": {
+        "message": "Tu conexión se interrumpió durante la carga.",
+        "recoveryAction": "Verifica tu señal e intenta de nuevo."
+      },
+      "unknown": {
+        "message": "Algo salió mal de nuestro lado al guardar tu archivo.",
+        "recoveryAction": "Intenta de nuevo — tu foto no se ha perdido."
+      }
+    }
   },
   "confirmation": {
     "heading": "Listo por ahora",
@@ -119,6 +155,7 @@
   },
   "common": {
     "close": "Cerrar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "extension": "ext."
   }
 }

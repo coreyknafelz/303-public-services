@@ -19,7 +19,7 @@ function formatDate(dateStr) {
     <ol class="timeline-steps__list">
       <li
         v-for="step in timeline"
-        :key="step.event"
+        :key="step.eventKey"
         class="timeline-steps__item"
         :class="{
           'is-completed': step.completed,
@@ -28,7 +28,7 @@ function formatDate(dateStr) {
       >
         <span class="timeline-steps__dot" aria-hidden="true" />
         <div class="timeline-steps__content">
-          <p class="timeline-steps__event">{{ step.event }}</p>
+          <p class="timeline-steps__event">{{ t(`timeline.events.${step.eventKey}`) }}</p>
           <p v-if="step.date" class="timeline-steps__date">{{ formatDate(step.date) }}</p>
         </div>
       </li>

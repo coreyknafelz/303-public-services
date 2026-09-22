@@ -15,7 +15,7 @@ const { t } = useI18n()
       <div class="caseworker-info__avatar" aria-hidden="true">{{ caseworker.name.charAt(0) }}</div>
       <div>
         <p class="caseworker-info__name">{{ caseworker.name }}</p>
-        <p class="caseworker-info__phone">{{ caseworker.phone }} ext. {{ caseworker.ext }}</p>
+        <p class="caseworker-info__phone">{{ caseworker.phone }} {{ t('common.extension') }} {{ caseworker.ext }}</p>
       </div>
       <a class="caseworker-info__call" :href="`tel:${caseworker.phone}`">{{ t('status.callButton') }}</a>
     </div>

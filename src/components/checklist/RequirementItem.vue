@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const props = defineProps({
-  requirement: { type: Object, required: true }, // { id, label, description, deadline, urgent, fulfilled }
+  requirement: { type: Object, required: true }, // { id, labelKey, descriptionKey, deadline, urgent, fulfilled }
 })
 
 const { t, d } = useI18n()
@@ -21,7 +21,7 @@ function goToUpload() {
   <div class="requirement-item" :class="{ 'is-fulfilled': requirement.fulfilled }">
     <div class="requirement-item__main">
       <div class="requirement-item__header">
-        <h3 class="requirement-item__label">{{ requirement.label }}</h3>
+        <h3 class="requirement-item__label">{{ t(`requirements.${requirement.labelKey}`) }}</h3>
         <span v-if="requirement.fulfilled" class="requirement-item__badge requirement-item__badge--done">
           {{ t('checklist.fulfilledBadge') }}
         </span>
@@ -29,7 +29,7 @@ function goToUpload() {
           {{ t('checklist.urgentBadge') }}
         </span>
       </div>
-      <p class="requirement-item__description">{{ requirement.description }}</p>
+      <p class="requirement-item__description">{{ t(`requirements.${requirement.descriptionKey}`) }}</p>
       <p class="requirement-item__deadline">{{ t('checklist.deadlineLabel') }} {{ formattedDeadline }}</p>
     </div>
     <button v-if="!requirement.fulfilled" type="button" class="requirement-item__cta" @click="goToUpload">

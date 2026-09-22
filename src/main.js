@@ -20,6 +20,7 @@ import {
 import App from './App.vue'
 import router from './router'
 import en from './locales/en.json'
+import es from './locales/es.json'
 import './assets/styles/global.css'
 
 // Register only the Chart.js building blocks actually used, to keep the bundle lean.
@@ -42,7 +43,7 @@ const i18n = createI18n({
   legacy: false,
   locale: 'en',
   fallbackLocale: 'en',
-  messages: { en },
+  messages: { en, es },
   datetimeFormats: {
     en: { short: { year: 'numeric', month: 'long', day: 'numeric' } },
     es: { short: { year: 'numeric', month: 'long', day: 'numeric' } },

@@ -22,13 +22,9 @@ function simulateUpload(onProgress) {
 const ERROR_MAP = {
   network: {
     code: 'network',
-    message: 'Your connection dropped partway through the upload.',
-    recoveryAction: 'Check your signal and try again.',
   },
   default: {
     code: 'unknown',
-    message: 'Something went wrong on our end while saving your file.',
-    recoveryAction: 'Try again — your photo has not been lost.',
   },
 }
 

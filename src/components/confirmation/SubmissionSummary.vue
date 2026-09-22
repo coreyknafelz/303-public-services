@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 
 defineProps({
-  docs: { type: Array, required: true }, // [{ requirementId, label, submittedAt }]
+  docs: { type: Array, required: true }, // [{ requirementId, labelKey, submittedAt }]
   caseCode: { type: String, required: true },
 })
 
@@ -18,7 +18,7 @@ function formatTimestamp(iso) {
     <h2 class="submission-summary__heading">{{ t('confirmation.submittedHeading') }}</h2>
     <ul class="submission-summary__list">
       <li v-for="doc in docs" :key="doc.requirementId" class="submission-summary__item">
-        <p class="submission-summary__doc">{{ doc.label }}</p>
+        <p class="submission-summary__doc">{{ t(`requirements.${doc.labelKey}`) }}</p>
         <p class="submission-summary__meta">{{ t('confirmation.submittedAt') }}: {{ formatTimestamp(doc.submittedAt) }}</p>
         <p class="submission-summary__meta">{{ t('confirmation.attachedTo') }}: {{ caseCode }}</p>
       </li>

@@ -6,12 +6,12 @@ defineProps({
   program: { type: Object, required: true }, // { id, name, status, statusLabel }
 })
 
-useI18n()
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="program-card">
-    <span class="program-card__name">{{ program.name }}</span>
+    <span class="program-card__name">{{ t(`programs.${program.nameKey}`) }}</span>
     <StatusBadge :status="program.status" />
   </div>
 </template>
