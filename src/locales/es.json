@@ -2,6 +2,12 @@
   "app": {
     "name": "ClearCase"
   },
+  "navigation": {
+    "label": "Navegación principal",
+    "status": "Estado",
+    "checklist": "Lista de documentos",
+    "help": "Ayuda"
+  },
   "programs": {
     "nourishNow": "NourishNow",
     "coverAllHealth": "CoverAll Health"

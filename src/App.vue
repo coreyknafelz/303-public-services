@@ -4,6 +4,7 @@ import { useUiStore } from '@/stores/uiStore'
 import { useLocale } from '@/composables/useLocale'
 import { useBandwidth } from '@/composables/useBandwidth'
 import AppHeader from '@/components/common/AppHeader.vue'
+import AppBottomNav from '@/components/common/AppBottomNav.vue'
 import HelpDrawer from '@/components/common/HelpDrawer.vue'
 
 const uiStore = useUiStore()
@@ -21,6 +22,7 @@ onMounted(() => {
   <main class="app-main">
     <RouterView />
   </main>
+  <AppBottomNav />
   <HelpDrawer />
 </template>
 
@@ -29,6 +31,6 @@ onMounted(() => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-bottom: var(--space-8);
+  padding-bottom: calc(var(--space-8) + 76px + env(safe-area-inset-bottom));
 }
 </style>
